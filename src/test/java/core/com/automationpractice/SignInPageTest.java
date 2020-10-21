@@ -33,12 +33,14 @@ public class SignInPageTest extends TestCommon
     @Test
     public void verifySignInFunctionality()
     {
+        //Verify that this is sign in page
+        assertTrue(signInPage.isThisCurrentPage());
         //TODO set parameter values from the external document
         signInPage.enterEmailSignIn("email.for.testing@tutanota.com");
         signInPage.enterPasswordSignIn("SuperSecret123?");
-
+        //Return the new page after navigation, 
         MyAccountPage myAccountPage = signInPage.pressSignInButton();
-        //Verify that SignIn is completed successfully
+        //Verify that sign in is completed successfully
         assertTrue(myAccountPage.isThisCurrentPage());
     }
 }
