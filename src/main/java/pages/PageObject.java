@@ -1,9 +1,9 @@
-package page.objects;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class PageObject
+public abstract class PageObject
 {
     protected WebDriver webDriver;
 
@@ -12,4 +12,6 @@ public class PageObject
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver,this);
     }
+
+    public abstract boolean isThisCurrentPage();
 }
