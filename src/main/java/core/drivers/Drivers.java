@@ -19,7 +19,7 @@ public class Drivers
 
     public WebDriver InitializeDriver()
     {
-        //TODO: replace path String values with Enumerations wherever possible
+        //TODO: Remove this class if necessary, create better parametrization
         try
         {
             final Properties props = new Properties();

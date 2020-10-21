@@ -1,4 +1,4 @@
-package page.objects;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,6 +32,12 @@ public class MyAccountPage extends PageObject
 
     public MyAccountPage(WebDriver webDriver) {
         super(webDriver);
+    }
+
+    @Override
+    public boolean isThisCurrentPage()
+    {
+        return myAccountPageTitle.isDisplayed();
     }
 
     public HomePage pressHomeButton()
