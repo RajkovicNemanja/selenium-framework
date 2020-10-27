@@ -7,6 +7,7 @@ import pages.MyAccountPage;
 import pages.SignInPage;
 
 import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
 
 public class SignInPageTest extends TestCommon
 {
@@ -42,5 +43,18 @@ public class SignInPageTest extends TestCommon
         MyAccountPage myAccountPage = signInPage.pressSignInButton();
         //Verify that sign in is completed successfully
         assertTrue(myAccountPage.isThisCurrentPage());
+    }
+
+    @Test
+    public void verifyTextOnPage()
+    {
+        //TODO: get String values from an external file
+        //Verify that the main page title has the appropriate value
+        assertEquals("AUTHENTICATION", signInPage.getPageHeadingText());
+        //Verify that create account form title has the appropriate value
+        assertEquals("CREATE AN ACCOUNT", signInPage.getCreateAccountFormHeadingText());
+        //Verify that log in form title has the appropriate value
+        assertEquals("ALREADY REGISTERED?", signInPage.getLogInFormHeadingText());
+        //TODO: create the same for all visible text on SignInPage
     }
 }

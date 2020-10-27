@@ -1,5 +1,6 @@
 package pages;
 
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,6 +15,13 @@ public class SignInPage extends PageObject {
 
     @FindBy(className = "navigation_page")
     private WebElement authenticationSpan;
+
+    //TODO: Check if this is the best way to locate this element
+    @FindBy(xpath = "//form[@id='create-account_form']//h3[@class='page-subheading']")
+    private WebElement createAccountFormHeading;
+    //TODO: Check if this is the best way to locate this element
+    @FindBy(xpath = "//form[@id='login_form']//h3[@class='page-subheading']")
+    private WebElement logInFormHeading;
 
     @FindBy(id = "email")
     private WebElement email;
@@ -35,6 +43,21 @@ public class SignInPage extends PageObject {
     public boolean isThisCurrentPage()
     {
         return pageHeading.isDisplayed();
+    }
+
+    public String getPageHeadingText()
+    {
+        return isPageHeadingDisplayed()?pageHeading.getText():StringUtils.EMPTY;
+    }
+
+    public String getCreateAccountFormHeadingText()
+    {
+        return isCreateAccountFormHeadingDisplayed()?createAccountFormHeading.getText():StringUtils.EMPTY;
+    }
+
+    public String getLogInFormHeadingText()
+    {
+        return isLogInFormHeadingDisplayed()?logInFormHeading.getText():StringUtils.EMPTY;
     }
 
     public void enterEmailAndPassword(final String email,
@@ -67,6 +90,21 @@ public class SignInPage extends PageObject {
     public boolean isAuthenticationSpanDisplayed()
     {
         return isWebElementDisplayed(authenticationSpan);
+    }
+
+    public boolean isPageHeadingDisplayed()
+    {
+        return isWebElementDisplayed(pageHeading);
+    }
+
+    public boolean isCreateAccountFormHeadingDisplayed()
+    {
+        return isWebElementDisplayed(createAccountFormHeading);
+    }
+
+    public boolean isLogInFormHeadingDisplayed()
+    {
+        return isWebElementDisplayed(logInFormHeading);
     }
 
     private boolean isWebElementDisplayed( final WebElement webElement )
