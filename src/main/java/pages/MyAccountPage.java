@@ -6,6 +6,9 @@ import org.openqa.selenium.support.FindBy;
 
 public class MyAccountPage extends PageObject
 {
+    @FindBy(id = "my-account")
+    private WebElement pageBody;
+
     @FindBy(className = "page-heading")
     private WebElement myAccountPageTitle;
 
@@ -37,7 +40,7 @@ public class MyAccountPage extends PageObject
     @Override
     public boolean isThisCurrentPage()
     {
-        return myAccountPageTitle.isDisplayed();
+        return pageBody.isDisplayed();
     }
 
     public HomePage pressHomeButton()
