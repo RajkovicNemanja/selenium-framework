@@ -16,6 +16,7 @@ public class SignInPageTest extends TestCommon
     @BeforeMethod
     public void beforeMethod()
     {
+        //TODO: get this value form props
         driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
         //TODO: create page factory
         signInPage = new SignInPage(driver);
@@ -39,7 +40,7 @@ public class SignInPageTest extends TestCommon
         //TODO set parameter values from the external document
         signInPage.enterEmailSignIn("email.for.testing@tutanota.com");
         signInPage.enterPasswordSignIn("SuperSecret123?");
-        //Return the new page after navigation, 
+        //Return the new page after navigation,
         MyAccountPage myAccountPage = signInPage.pressSignInButton();
         //Verify that sign in is completed successfully
         assertTrue(myAccountPage.isThisCurrentPage());
@@ -50,11 +51,11 @@ public class SignInPageTest extends TestCommon
     {
         //TODO: get String values from an external file
         //Verify that the main page title has the appropriate value
-        assertEquals("AUTHENTICATION", signInPage.getPageHeadingText());
+        assertEquals(signInPage.getPageHeadingText(),"AUTHENTICATION");
         //Verify that create account form title has the appropriate value
-        assertEquals("CREATE AN ACCOUNT", signInPage.getCreateAccountFormHeadingText());
+        assertEquals(signInPage.getCreateAccountFormHeadingText(),"CREATE AN ACCOUNT");
         //Verify that log in form title has the appropriate value
-        assertEquals("ALREADY REGISTERED?", signInPage.getLogInFormHeadingText());
+        assertEquals(signInPage.getLogInFormHeadingText(),"ALREADY REGISTERED?");
         //TODO: create the same for all visible text on SignInPage
     }
 }

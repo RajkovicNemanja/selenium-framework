@@ -1,8 +1,5 @@
 package core;
 
-import core.drivers.Drivers;
-import org.openqa.selenium.WebDriver;
-
 /**
  * Hello world!
  *

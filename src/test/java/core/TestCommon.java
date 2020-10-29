@@ -36,6 +36,10 @@ public class TestCommon
         driver.close();
     }
 
+    public static WebDriver getDriver() {
+        return driver;
+    }
+
     protected void explicitWait()
     {
         //TODO create eplixit wait
